@@ -1,0 +1,110 @@
+<head>
+    <style>
+        th{
+            border:1px solid white;
+            width: 200px;
+            background:black;
+            color:white;
+            text-align: center;
+            height: 50px;
+        }
+        td{
+            text-align: center;
+            border:0.5px solid black;
+            background:gray;
+            color: white;
+            height:30px;
+        }
+        .v-s{
+            color:white;
+            font-size:0.6em;
+        }
+        h3, h2{
+            text-align: center;
+        }
+        header{
+            margin-top:4%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .hey{
+            color:blue;
+            font-size:1.2em;
+        }
+        .note{
+            font-size:0.8em;
+            text-align: center;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<header>
+    <h2>
+        <span class="hey">Hey</span>, here is your fixture... <h3>Remember everytime you refresh, you will get a new one</h3>
+    </h2>
+    <div class="note">
+        <p> 
+            Note: If you are not able to find Opponent1 v/s Opponent2 then look for Opponent2 v/s Opponent1 as they mean the same.
+        </p>
+    </div>
+</header>
+<div class="container" >
+    <table align="center">
+        <tr>
+            <th>S.no</th>
+            <th>Date</th>
+            <th>Match</th>
+            <th>Venue</th>
+        </tr>
+        <% for(var i=0, sr=0;i<finalResult.length;i++){%>
+            <% if (finalResult[i].weekend==false){ %>
+            <tr>
+                <td>
+                    <%= sr+1 %>
+                    <% sr = sr+1 %>
+                </td>
+                <td>
+                    <%= finalResult[i].date %>
+                </td>
+                <td>
+                    <%= finalResult[i].teamA %> <span class="v-s">V/S</span> <%= finalResult[i].teamB %>
+                </td>
+                <td>
+                    <%= finalResult[i].venue %> 's Home Ground
+                </td>
+            </tr>
+            <% } else { %>
+                <tr>
+                        <td>
+                            <%= sr+1 %>
+                            <% sr=sr+1 %>
+                        </td>
+                        <td rowspan="2">
+                            <%= finalResult[i].date %>
+                        </td>
+                        <td>
+                            <%= finalResult[i].teamA %> <span class="v-s">V/S</span> <%= finalResult[i].teamB %>
+                        </td>
+                        <td>
+                            <%= finalResult[i].venue1 %> 's Home Ground
+                        </td>
+                </tr>
+                <tr>
+                    <td>
+                            <%= sr+1 %>
+                            <% sr=sr+1 %>
+                    </td>
+                    <td>
+                            <%= finalResult[i].teamC %> <span class="v-s">V/S</span> <%= finalResult[i].teamD %>
+                    </td>
+                    <td>
+                            <%= finalResult[i].venue2 %> 's Home Ground
+                    </td>
+                </tr>
+            <% } %>
+        <%}%>
+    </table>
+    
+    
+</div>

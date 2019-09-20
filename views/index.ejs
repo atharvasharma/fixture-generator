@@ -1,0 +1,33 @@
+<head>
+    <style>
+        body{
+            font-family: 'Open Sans', sans-serif;
+        }
+        .container{
+            text-align: center;
+        }
+        input{
+            height: 50px;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        header{
+            text-transform: uppercase;
+            text-align:center;
+            margin-top:18%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3>Please enter the date to create a fixture</h3>
+    </header>
+    <div class="container">
+        <form action="/fixture" method="POST">
+            <input type="date" name="date">
+            <input type="submit">
+        </form>
+    </div>
+</body>
